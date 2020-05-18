@@ -100,6 +100,10 @@ def ratio_intersection(l1,l2,l3,l4):
     B = a1*b4 + a4*b1 - a2*b3 - a3*b2
     C = b1*b4-b2*b3
     if A==0:
+        if B==0:
+            if C==0:
+                print "Warn: A,B,C are zeros"
+            return np.array([])
         return np.array([-C/B])
     delta = (B**2)-4*A*C
     if delta<0:

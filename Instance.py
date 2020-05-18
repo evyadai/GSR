@@ -118,6 +118,8 @@ class Instance(object):
         pass
     def cr_zm(self):
         pass
+    def cr_inf_overall(self):
+        pass
     
     
     
@@ -127,7 +129,7 @@ class Instance(object):
         else:
             normed = self.normalize()
         cr0 = normed.cr_0()
-        crInf = normed.cr_inf()
+        crInf = normed.cr_inf_overall()
         zm,cr_zm = normed.middle_time_cr()
         if ((cr0 <=cr_zm) and (cr0 <= crInf)):
             res = (0,cr0)
@@ -190,9 +192,7 @@ class Instance(object):
             for ind_z,z in enumerate(T_tag):
                 if y==np.inf and self.opt(np.inf)==np.inf:
                     if z==np.inf :
-                        
                         C[ind_y,ind_z]=self.cr_inf()
-                        
                     else:
                         C[ind_y,ind_z]=np.float64(1.0)
                 else:

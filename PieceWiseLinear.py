@@ -14,12 +14,14 @@ class PieceWiseLinear(object):
         self.times=times
         
     def __getitem__(self,t):
+        if t is None:
+            print "no item None"
         if t>=self.times[-1]:
             return self.lins[-1][t]
         for ind in range(len(self.times)):
             if t>=self.times[ind] and t<self.times[ind+1]:
                 return self.lins[ind][t]
-        print "no item"
+        print "no item",self,t
     def __call__(self,t):
         return self.__getitem__(t)
     def __str__(self):
